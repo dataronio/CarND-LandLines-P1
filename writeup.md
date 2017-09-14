@@ -33,18 +33,26 @@ In the First step, input images are converted to grayscale.  This is necessary f
 
 ![alt text][image1]
 
+---
+
 The second step is to blur the grayscaled image using a Gaussian Blur kernel.  I chose a 5 x 5 kernel size.  This reduces anomalous edges due to noise in the image.
 
 ![alt text][image2]
+
+---
 
 The third step is to apply the Canny Edge Detector.  I have chosen 50 and 150 as the low and high threshold parameters.  This is in accordance with Canny's own guidelines of using between a 1:2 and 1:3 ratio for the threshold parameters.
 
 ![alt text][image3]
 
+---
+
 The fourth step is to mask the edge image in order to define the region of interest for lane detection.  The area in front of the vehicle up to a narrowing quadrilateral to roughly the
 middle of the image is used as the mask.  I use 6 parameters to move the four points of the mask. Details can be found in the notebook.
 
 ![alt text][image4]
+
+---
 
 The Hough Transform
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by 
@@ -66,10 +74,8 @@ Finally, cracks in the road surface cause spurious lanes to be detected.
 
 A possible improvement would be to apply some form of deformable template in the Hough Transform in order to handle sharply curving roads.
 
-A means of better optimizing the parameters of the pipeline using a greater variety of road styles and surfaces needs to be developed.
-
-Robustness needs to be added to reject horizontal Hough lines that are detected in road cracks.
+A means of better optimizing the parameters of the pipeline using a greater variety of road styles and surfaces needs to be developed.  Robustness needs to be added to reject horizontal Hough lines that are detected in road cracks.
 
 Some form of exponential moving average from frame to frame could be added to reduce jitter.
 
-Another potential improvement could be to recode the pipeline in C++ for use in a proper automotive embedded system.
+Another potential improvement could be to recode the pipeline in C++ for use in a realistic automotive embedded system.
