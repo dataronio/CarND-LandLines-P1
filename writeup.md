@@ -9,7 +9,7 @@
 [image2]: ./saved_images/blursolidYellowLeft.jpg "Blurred"
 [image3]: ./saved_images/edgessolidYellowLeft.jpg "Canny Edges"
 [image4]: ./saved_images/maskedsolidYellowLeft.jpg "Masked"
-[image5]: ./saved_images/houghsolidYellowLeft.jpg "Hough"
+[image5]: ./saved_images/outsolidYellowLeft.jpg "Hough Lanes"
 
 
 ## 1. The Lane Finding Pipeline.
@@ -35,20 +35,20 @@ In the First step, input images are converted to grayscale.  This is necessary f
 
 ---
 
-The second step is to blur the grayscaled image using a Gaussian Blur kernel.  I chose a 5 x 5 kernel size.  This reduces anomalous edges due to noise in the image.
+The second step is to blur the grayscaled image using a Gaussian Blur kernel.  I chose a 5 x 5 kernel size.  This reduces anomalous edges due to noise in the image. The blurred image is below.
 
 ![alt text][image2]
 
 ---
 
-The third step is to apply the Canny Edge Detector.  I have chosen 50 and 150 as the low and high threshold parameters.  This is in accordance with Canny's own guidelines of using between a 1:2 and 1:3 ratio for the threshold parameters.
+The third step is to apply the Canny Edge Detector.  I have chosen 50 and 150 as the low and high threshold parameters.  This is in accordance with Canny's own guidelines of using between a 1:2 and 1:3 ratio for the threshold parameters.  The detected edges are in the image below.
 
 ![alt text][image3]
 
 ---
 
 The fourth step is to mask the edge image in order to define the region of interest for lane detection.  The area in front of the vehicle up to a narrowing quadrilateral to roughly the
-middle of the image is used as the mask.  I use 6 parameters to move the four points of the mask. Details can be found in the notebook.
+middle of the image is used as the mask.  I use 6 parameters to move the four points of the mask. Details can be found in the notebook.  Below we see the results of the masking.
 
 ![alt text][image4]
 
