@@ -1,5 +1,18 @@
 # **Finding Lane Lines on the Road** 
 
+## Reflections on the Lane Finding Project
+
+
+[//]: # (Image References)
+
+[image1]: ./saved_images/graysolidYellowLeft.jpg "Grayscale"
+[image2]: ./saved_images/blursolidYellowLeft.jpg "Blurred"
+[image3]: ./saved_images/edgessolidYellowLeft.jpg "Canny Edges"
+[image4]: ./saved_images/maskedsolidYellowLeft.jpg "Masked"
+[image5]: ./saved_images/houghsolidYellowLeft.jpg "Hough"
+
+
+## 1. The Lane Finding Pipeline.
 
 ### **Steps in the lane finding pipeline**
 
@@ -12,32 +25,26 @@ The following are the computer vision processing steps of the lane finding pipel
 4. Mask the image to define the region of interest.
 5. Apply Hough Transform and superimpose detected lane lines.
 
-
-
-[//]: # (Image References)
-
-[image1]: ./saved_images/graysolidYellowLeft.jpg "Grayscale"
-[image2]: ./saved_images/blursolidYellowLeft.jpg "Blurred"
-[image3]: ./saved_images/edgessolidYellowLeft.jpg "Canny Edges"
-[image4]: ./saved_images/maskedsolidYellowLeft.jpg "Masked"
-[image5]: ./saved_images/houghsolidYellowLeft.jpg "Hough"
-
 ---
 
-### Reflection
+My pipeline consists of 5 steps. 
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
-
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+In the First step, input images are converted to grayscale.  This is necessary for the Canny Edge Detector to detect gradient changes that resolve to edges.
 
 ![alt text][image1]
 
+The second step is to blur the grayscaled image using a Gaussian Blur kernel.  I choose a 5 x 5 kernel size.  This reduces anomalous edges due to noise in the image.
 
-### 2. Identify potential shortcomings with your current pipeline
+![alt text][image2]
+
+The third step is to apply the Canny Edge Detector.  I have chosen 50 and 150 as the low and high threshold parameters.  This is in accordance with Canny's own guidelines of using between a 1:2 and 1:3 ratio for the threshold parameters.
+
+![alt text][image3]
+
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+
+
+### 2. Potential shortcomings in the current pipeline
 
 
 One potential shortcoming would be what would happen when ... 
@@ -45,7 +52,7 @@ One potential shortcoming would be what would happen when ...
 Another shortcoming could be ...
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Suggestion for improvements in the pipeline
 
 A possible improvement would be to ...
 
