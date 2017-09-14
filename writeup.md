@@ -12,9 +12,9 @@
 [image5]: ./saved_images/outsolidYellowLeft.jpg "Hough Lanes"
 
 
-## 1. The Lane Finding Pipeline.
+### 1. The Lane Finding Pipeline.
 
-### **Steps in the lane finding pipeline**
+**Steps in the lane finding pipeline**
 
 ---
 
@@ -55,7 +55,7 @@ middle of the image is used as the mask.  I use 6 parameters to move the four po
 ---
 
 The Hough Transform is used to detect line segments from the masked Canny edges.  There are many parameters that can be modified and the details are better left to the notebook code.
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by separating the positive and negative sloped line segments from the Hough Transform and averaged the slopes and intercepts of the two sets of line segments found in the masked image.  Using this information, I then drew the left and right lane line using the OpenCV line function from a y-coordinate at the bottom of the image up to around the top of the region of interest.  We can see the results superimposed on the original image below.
+In order to draw a single line on the left and right lanes, I modified the draw_lines() function by separating the positive and negative sloped line segments from the Hough Transformed Canny Edge image and separately averaged the slopes and intercepts of the two sets of line segments.  Using this information, I then drew the left and right lane line using the OpenCV line function from a y-coordinate at the bottom of the image up to around the top of the region of interest.  We can see the results superimposed on the original image below.
 
 
 ![alt text][image5]
