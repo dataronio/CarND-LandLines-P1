@@ -1,21 +1,26 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
+### **Steps in the lane finding pipeline**
 
 ---
 
-**Finding Lane Lines on the Road**
+The following are the computer vision processing steps of the lane finding pipeline:
+1. Convert input image to grayscale. 
+2. Blur image with Gaussian kernel.
+3. Apply Canny Edge Detector.
+4. Mask the image to define the region of interest.
+5. Apply Hough Transform and superimpose detected lane lines.
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
 
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: ./saved_images/graysolidYellowLeft.jpg "Grayscale"
+[image2]: ./saved_images/blursolidYellowLeft.jpg "Blurred"
+[image3]: ./saved_images/edgessolidYellowLeft.jpg "Canny Edges"
+[image4]: ./saved_images/maskedsolidYellowLeft.jpg "Masked"
+[image5]: ./saved_images/houghsolidYellowLeft.jpg "Hough"
 
 ---
 
